@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import profileImage from '../assets/fd2b9c6608f7c62cf798ae0a5663f22317471fe8.png';
 
 export function Hero() {
