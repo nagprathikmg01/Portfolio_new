@@ -12,44 +12,47 @@ export function Projects() {
     {
       title: 'Karnataka Agricultural App UI',
       description:
-        'Built a responsive agricultural web app with dashboards, crop management, analytics, and real-time insights. Integrated AI features including crop prediction, soil insights, weather recommendations, and an AI assistant.',
-      tech: ['React', 'TypeScript', 'Vite', 'Tailwind', 'Node.js', 'Recharts', 'AI Integration'],
+        'A comprehensive responsive web application designed for agricultural management. Features include real-time crop analytics, soil health monitoring, and AI-driven recommendations for optimal farming practices.',
+      tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Node.js', 'AI Integration'],
       highlights: [
-        'Responsive agricultural web app with dashboards',
-        'Crop management and analytics',
-        'AI-powered crop prediction and soil insights',
-        'Deployed on Vercel',
+        'Interactive dashboards for real-time monitoring',
+        'AI-model integration for crop prediction',
+        'Responsive design optimized for rural connectivity',
       ],
+      github: '#',
+      demo: '#',
     },
     {
-      title: 'Ecothrift — Sustainable Second-Hand Marketplace',
+      title: 'Ecothrift — Sustainable Marketplace',
       description:
-        'Developed a complete marketplace web application with authentication, product CRUD, seller dashboard, and purchase history. Added search & category filtering, responsive UI, smooth animations, and accessibility support.',
-      tech: ['React', 'Node.js', 'CSS', 'Context API', 'LocalStorage', 'React Router'],
+        'A full-featured e-commerce platform focusing on sustainable second-hand trading. Includes secure user authentication, dynamic product management, and a seamless buyer-seller interaction flow.',
+      tech: ['React', 'Node.js', 'Context API', 'LocalStorage', 'CSS Modules'],
       highlights: [
-        'Complete marketplace with authentication',
-        'Product CRUD and seller dashboard',
-        'Search and category filtering',
-        'Persistent data with LocalStorage',
+        'Secure authentication & user management',
+        'Comprehensive product CRUD operations',
+        'Advanced search and filtering capabilities',
       ],
+      github: '#',
+      demo: '#',
     },
     {
-      title: 'Adaptive Drone Navigation & Drift Detection System',
+      title: 'Drone Navigation & Drift Detection',
       description:
-        'Designing a transformer-based model for drone motion prediction and real-time drift detection. Implementing adaptive rerouting and alert mechanisms for stability in dynamic environments.',
-      tech: ['Python', 'PyTorch', 'Streamlit', 'TensorFlow', 'Drone Learning', 'AI/ML'],
+        'Research-led project developing a transformer-based AI model for autonomous drone stability. Focuses on real-time drift detection and adaptive path correction in dynamic environments.',
+      tech: ['Python', 'PyTorch', 'TensorFlow', 'Streamlit', 'Deep Learning'],
       highlights: [
-        'Transformer-based motion prediction',
-        'Real-time drift detection',
-        'Adaptive rerouting mechanisms',
-        'Interactive Streamlit dashboard',
+        'Transformer architecture for motion prediction',
+        'Real-time environmental drift analysis',
+        'Interactive visualization dashboard',
       ],
       badge: 'Final Year Project',
+      github: '#',
+      demo: '#',
     },
   ];
 
   return (
-    <section id="projects" className="py-20 px-4">
+    <section id="projects" className="py-20 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
@@ -61,7 +64,7 @@ export function Projects() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-4 text-center"
+            className="text-4xl md:text-5xl font-bold text-white mb-4 text-center"
           >
             Featured <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Projects</span>
           </motion.h2>
@@ -71,9 +74,9 @@ export function Projects() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center text-gray-400 mb-12 text-lg"
           >
-            Showcasing my best work and innovations
+            Selected works demonstrating technical expertise and innovation
           </motion.p>
-          <div className="space-y-8">
+          <div className="grid gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -81,48 +84,67 @@ export function Projects() {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="group bg-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-10 border border-white/10 hover:border-primary/50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-primary/10"
+                className="group bg-surface rounded-2xl p-8 border border-white/5 hover:border-primary/50 transition-all duration-300 shadow-xl hover:shadow-primary/10 relative overflow-hidden"
               >
-                <div className="flex items-start justify-between mb-6 flex-col md:flex-row gap-4">
-                  <div className="flex-1">
-                    <h3 className="text-3xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    {project.badge && (
-                      <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 border border-primary/20">
-                        {project.badge}
-                      </span>
-                    )}
-                  </div>
-                  <div className="flex gap-3">
-                    <button className="p-3 bg-white/5 rounded-xl hover:bg-primary/20 hover:scale-110 transition-all duration-300 border border-white/10 hover:border-primary/50">
-                      <Github className="w-5 h-5 text-gray-300 hover:text-white transition-colors" />
-                    </button>
-                    <button className="p-3 bg-white/5 rounded-xl hover:bg-primary/20 hover:scale-110 transition-all duration-300 border border-white/10 hover:border-primary/50">
-                      <ExternalLink className="w-5 h-5 text-gray-300 hover:text-white transition-colors" />
-                    </button>
-                  </div>
+                <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Github className="w-32 h-32 text-primary transform rotate-12 translate-x-10 -translate-y-10" />
                 </div>
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed">{project.description}</p>
-                <div className="mb-6">
-                  <ul className="space-y-3">
-                    {project.highlights.map((highlight) => (
-                      <li key={highlight} className="text-gray-300 flex items-start gap-3">
-                        <span className="text-primary mt-1.5 text-xl">▸</span>
-                        <span className="flex-1">{highlight}</span>
-                      </li>
+
+                <div className="relative z-10">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                    <div>
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      {project.badge && (
+                        <span className="inline-block px-3 py-1 bg-primary/20 text-primary rounded-full text-xs font-semibold tracking-wide border border-primary/20">
+                          {project.badge}
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex gap-3">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 bg-white/5 rounded-lg hover:bg-primary hover:text-white text-gray-400 transition-all duration-300 border border-white/10 hover:border-primary"
+                        aria-label="GitHub Repository"
+                      >
+                        <Github className="w-5 h-5" />
+                      </a>
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 bg-white/5 rounded-lg hover:bg-primary hover:text-white text-gray-400 transition-all duration-300 border border-white/10 hover:border-primary"
+                        aria-label="Live Demo"
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-300 mb-6 leading-relaxed max-w-3xl">{project.description}</p>
+
+                  <div className="grid md:grid-cols-2 gap-4 mb-8">
+                    {project.highlights.map((highlight, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        <span className="text-gray-400 text-sm">{highlight}</span>
+                      </div>
                     ))}
-                  </ul>
-                </div>
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-2 bg-white/5 text-gray-200 rounded-lg text-sm font-medium border border-white/10 hover:border-primary/30 hover:bg-primary/5 transition-all duration-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-white/5 text-gray-300 rounded-md text-sm font-medium border border-white/10 group-hover:border-primary/30 transition-colors"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}

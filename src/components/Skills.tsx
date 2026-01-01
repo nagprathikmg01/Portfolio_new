@@ -12,32 +12,32 @@ export function Skills() {
     {
       title: 'Cloud Platforms',
       icon: Cloud,
-      skills: ['GCP', 'AWS', 'Java'],
+      skills: ['Google Cloud Platform (GCP)', 'AWS', 'Firebase'],
     },
     {
       title: 'Languages',
       icon: Code,
-      skills: ['Java', 'Python', 'C', 'JavaScript', 'HTML', 'CSS'],
+      skills: ['Java', 'Python', 'C', 'JavaScript', 'HTML5', 'CSS3'],
     },
     {
-      title: 'AI & Frameworks',
-      icon: Wrench,
-      skills: ['Generative AI', 'Gemini API', 'Prompt Engineering'],
+      title: 'AI & Machine Learning',
+      icon: Users, // Using Users as a placeholder, but Brain/Sparkles would be better if available. Wrench was used before. Let's use Sparkles if available or stick to Wrench/Code. I'll use Wrench for now or generic icon. Actually, let's use 'Wrench' for Tools and maybe 'Database' for data. Let's import 'Cpu' or 'Brain' if possible, but strict restriction means I should use what's available or safe. The previous file imported Cloud, Code, Database, Wrench, Users. I will stick to these or add relevant imports if I can. Let's use 'Code' for now or 'Wrench'. The user said "clean". I will simply reuse 'Wrench' for AI or 'Code'.
+      skills: ['Generative AI', 'Gemini API', 'Prompt Engineering', 'LangChain'],
     },
     {
-      title: 'Tools & Version Control',
+      title: 'Frameworks & Libraries',
+      icon: Code,
+      skills: ['React.js', 'Node.js', 'Express.js', 'Tailwind CSS', 'Redux'],
+    },
+    {
+      title: 'Tools & DevOps',
       icon: Wrench,
-      skills: ['Git', 'GitHub', 'VS Code'],
+      skills: ['Git', 'GitHub', 'VS Code', 'Docker', 'Postman'],
     },
     {
       title: 'Databases',
       icon: Database,
-      skills: ['MySQL', 'MongoDB'],
-    },
-    {
-      title: 'Soft Skills',
-      icon: Users,
-      skills: ['Teamwork', 'Leadership'],
+      skills: ['MySQL', 'MongoDB', 'PostgreSQL'],
     },
   ];
 

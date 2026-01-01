@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export function Navigation() {
@@ -48,15 +48,15 @@ export function Navigation() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline gap-8">
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex items-baseline gap-8">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className={`relative transition-all duration-300 font-medium group ${activeSection === item.id
-                      ? 'text-primary'
-                      : 'text-gray-300 hover:text-primary'
+                  className={`relative transition-all duration-300 font-medium group text-sm ${activeSection === item.id
+                    ? 'text-primary'
+                    : 'text-gray-300 hover:text-primary'
                     }`}
                 >
                   {item.label}
@@ -67,6 +67,14 @@ export function Navigation() {
                 </button>
               ))}
             </div>
+            <a
+              href="/resume.pdf"
+              download
+              className="flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-secondary text-white rounded-md transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 font-medium text-sm"
+            >
+              <Download className="w-4 h-4" />
+              <span>Resume</span>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -84,19 +92,27 @@ export function Navigation() {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-white/10">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="px-4 pt-4 pb-6 space-y-2">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
                 className={`block px-4 py-3 w-full text-left transition-all duration-200 rounded-lg font-medium ${activeSection === item.id
-                    ? 'text-primary bg-primary/10 border-l-4 border-primary'
-                    : 'text-gray-300 hover:text-primary hover:bg-white/5'
+                  ? 'text-primary bg-primary/10 border-l-4 border-primary'
+                  : 'text-gray-300 hover:text-primary hover:bg-white/5'
                   }`}
               >
                 {item.label}
               </button>
             ))}
+            <a
+              href="/resume.pdf"
+              download
+              className="flex items-center justify-center gap-2 w-full px-4 py-3 mt-4 bg-primary hover:bg-secondary text-white rounded-lg transition-all duration-300 font-medium"
+            >
+              <Download className="w-4 h-4" />
+              <span>Download Resume</span>
+            </a>
           </div>
         </div>
       )}

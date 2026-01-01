@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #6366f1;
-  --color-secondary: #ec4899;
-  --color-accent: #8b5cf6;
-  --color-background: #0f172a;
-  --color-surface: #1e293b;
+  --color-primary: #ef4444;
+  --color-secondary: #dc2626;
+  --color-accent: #b91c1c;
+  --color-background: #000000;
+  --color-surface: #121212;
 
   --font-sans: 'Inter', system-ui, sans-serif;
 
@@ -21,17 +21,17 @@
     }
 
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-10px);
     }
   }
 
   @keyframes glow {
     from {
-      box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
     }
 
     to {
-      box-shadow: 0 0 20px rgba(236, 72, 153, 0.7);
+      box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
     }
   }
 
@@ -41,11 +41,11 @@
     }
 
     33% {
-      transform: translate(30px, -50px) scale(1.1);
+      transform: translate(20px, -30px) scale(1.05);
     }
 
     66% {
-      transform: translate(-20px, 20px) scale(0.9);
+      transform: translate(-10px, 10px) scale(0.95);
     }
 
     100% {
