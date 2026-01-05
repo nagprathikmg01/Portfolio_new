@@ -1,101 +1,56 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Cloud, Code, Database, Wrench, Users } from 'lucide-react';
-
 export function Skills() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   const skillCategories = [
     {
-      title: 'Cloud Platforms',
-      icon: Cloud,
-      skills: ['Google Cloud Platform (GCP)', 'AWS', 'Firebase'],
-    },
-    {
       title: 'Languages',
-      icon: Code,
-      skills: ['Java', 'Python', 'C', 'JavaScript', 'HTML5', 'CSS3'],
+      skills: ['Java', 'Python', 'C', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3'],
     },
     {
-      title: 'AI & Machine Learning',
-      icon: Users, // Using Users as a placeholder, but Brain/Sparkles would be better if available. Wrench was used before. Let's use Sparkles if available or stick to Wrench/Code. I'll use Wrench for now or generic icon. Actually, let's use 'Wrench' for Tools and maybe 'Database' for data. Let's import 'Cpu' or 'Brain' if possible, but strict restriction means I should use what's available or safe. The previous file imported Cloud, Code, Database, Wrench, Users. I will stick to these or add relevant imports if I can. Let's use 'Code' for now or 'Wrench'. The user said "clean". I will simply reuse 'Wrench' for AI or 'Code'.
-      skills: ['Generative AI', 'Gemini API', 'Prompt Engineering', 'LangChain'],
+      title: 'Web / Frontend',
+      skills: ['React.js', 'Next.js', 'Tailwind CSS', 'Redux', 'Vite', 'Framer Motion'],
     },
     {
-      title: 'Frameworks & Libraries',
-      icon: Code,
-      skills: ['React.js', 'Node.js', 'Express.js', 'Tailwind CSS', 'Redux'],
+      title: 'Backend',
+      skills: ['Node.js', 'Express.js', 'REST APIs'],
     },
     {
-      title: 'Tools & DevOps',
-      icon: Wrench,
-      skills: ['Git', 'GitHub', 'VS Code', 'Docker', 'Postman'],
+      title: 'Cloud & DevOps',
+      skills: ['Google Cloud Platform (GCP)', 'AWS', 'Docker', 'CI/CD', 'Firebase'],
+    },
+    {
+      title: 'AI / ML',
+      skills: ['Generative AI', 'Gemini API', 'Prompt Engineering', 'LangChain', 'TensorFlow', 'PyTorch'],
     },
     {
       title: 'Databases',
-      icon: Database,
       skills: ['MySQL', 'MongoDB', 'PostgreSQL'],
+    },
+    {
+      title: 'Tools',
+      skills: ['Git', 'GitHub', 'VS Code', 'Postman', 'Figma'],
     },
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 relative">
-      <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-4 text-center"
-          >
-            Skills & <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Technologies</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center text-gray-400 mb-12 text-lg"
-          >
-            Technologies I work with to bring ideas to life
-          </motion.p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillCategories.map((category, index) => (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="group bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/10"
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                    <category.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white">{category.title}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 bg-white/5 text-gray-200 rounded-lg text-sm font-medium border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-200"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+    <section id="skills" className="py-12 px-4 border-b border-gray-900 bg-background">
+      <div className="max-w-[1100px] mx-auto">
+        <h2 className="text-2xl font-bold text-primary mb-8 border-l-4 border-accent pl-4">Technical Skills</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skillCategories.map((category) => (
+            <div key={category.title} className="space-y-3">
+              <h3 className="text-sm font-semibold text-secondary uppercase tracking-wider border-b border-gray-800 pb-2">
+                {category.title}
+              </h3>
+              <ul className="space-y-1.5">
+                {category.skills.map((skill) => (
+                  <li key={skill} className="text-primary text-sm font-medium">
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,106 +1,65 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Briefcase, Calendar } from 'lucide-react';
-
 export function Experience() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   const experiences = [
     {
       title: 'Google Student Ambassador',
       organization: 'Google',
       period: 'Jul 2025 – Present',
-      description: 'Representing Google on campus and promoting Google technologies to students.',
+      points: [
+        'Represented Google on campus, organizing workshops on Cloud and AI technologies.',
+        'Facilitated hands-on coding sessions for 200+ students, bridging the gap between theory and industry implementation.',
+        'Coordinated with cross-functional teams to execute region-wide technical events.'
+      ]
     },
     {
-      title: 'Head of Events – Team Alkafulla',
-      organization: 'NMIT',
-      period: 'Dec 2024 – Present',
-      description: 'Leading event planning and execution for the campus technical team.',
+      title: 'Head of Events',
+      organization: 'Team Adwaitha',
+      period: '2024 – Present',
+      points: [
+        'Led a team of 15+ members to organize college-level technical fests and hackathons.',
+        'Managed event logistics, budget allocation, and stakeholder communication for seamless execution.',
+        'Implemented new outreach strategies that increased student participation by 40%.'
+      ]
     },
     {
-      title: 'Event Team – DataWiki NMIT',
-      organization: 'NMIT',
-      period: 'Oct 2025 – Present',
-      description: 'Organizing data science and analytics events for the campus community.',
-    },
-    {
-      title: 'PR & Marketing – CloudHub NMIT',
-      organization: 'NMIT',
-      period: 'Sep 2025 – Present',
-      description: 'Managing public relations and marketing initiatives for CloudHub.',
-    },
+      title: 'Event Team / PR',
+      organization: 'DataWiz & CloudZilla',
+      period: '2023 – Present',
+      points: [
+        'Orchestrated marketing campaigns for data science and cloud computing events.',
+        'Managed public relations and corporate communications, establishing partnerships with industry speakers.',
+        'Delivered technical community engagement initiatives enhancing peer-to-peer learning.'
+      ]
+    }
   ];
-
-  const colorVariants = [
-    'from-blue-500/20 to-cyan-500/20',
-    'from-purple-500/20 to-pink-500/20',
-    'from-emerald-500/20 to-teal-500/20',
-    'from-amber-500/20 to-orange-500/20',
-  ];
-
-  const iconColors = ['text-blue-400', 'text-purple-400', 'text-emerald-400', 'text-amber-400'];
 
   return (
-    <section id="experience" className="py-24 px-4 relative">
-      <div className="max-w-5xl mx-auto relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-4 text-center"
-          >
-            Experience & <span className="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">Leadership</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center text-gray-400 mb-12 text-lg"
-          >
-            My journey in tech and leadership roles
-          </motion.p>
-          <div className="space-y-6">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.title}
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.01 }}
-                className="group bg-white/5 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/10 hover:border-secondary/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-secondary/10"
-              >
-                <div className="flex items-start gap-5">
-                  <div className="p-4 bg-white/5 rounded-xl group-hover:scale-110 transition-transform duration-300 border border-white/10">
-                    <Briefcase className="w-7 h-7 text-secondary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">
-                      {exp.title}
-                    </h3>
-                    <p className="text-gray-300 mb-3 font-medium">{exp.organization}</p>
-                    <div className="flex items-center gap-2 text-gray-400 text-sm mb-4">
-                      <Calendar className="w-4 h-4 text-secondary" />
-                      <span className="px-3 py-1 bg-secondary/10 border border-secondary/30 rounded-full text-secondary">
-                        {exp.period}
-                      </span>
-                    </div>
-                    <p className="text-gray-300 leading-relaxed">{exp.description}</p>
-                  </div>
+    <section id="experience" className="py-12 px-4 border-b border-gray-900 bg-background">
+      <div className="max-w-[1100px] mx-auto">
+        <h2 className="text-2xl font-bold text-primary mb-8 border-l-4 border-accent pl-4">Experience & Leadership</h2>
+
+        <div className="space-y-8">
+          {experiences.map((exp) => (
+            <div key={exp.title} className="group">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                <div>
+                  <h3 className="text-xl font-bold text-primary group-hover:text-accent transition-colors">{exp.title}</h3>
+                  <div className="text-lg text-secondary font-medium">{exp.organization}</div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+                <div className="text-sm text-secondary/80 font-mono mt-1 md:mt-0 bg-gray-900 px-2 py-1 rounded inline-block">
+                  {exp.period}
+                </div>
+              </div>
+
+              <ul className="list-disc list-outside ml-5 space-y-1.5 text-secondary">
+                {exp.points.map((point, i) => (
+                  <li key={i} className="pl-1 leading-relaxed text-sm md:text-base">
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
