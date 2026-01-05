@@ -1,56 +1,37 @@
 export function Skills() {
-  const skillCategories = [
-    {
-      title: 'Languages',
-      skills: ['Java', 'Python', 'C', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3'],
-    },
-    {
-      title: 'Web / Frontend',
-      skills: ['React.js', 'Next.js', 'Tailwind CSS', 'Redux', 'Vite', 'Framer Motion'],
-    },
-    {
-      title: 'Backend',
-      skills: ['Node.js', 'Express.js', 'REST APIs'],
-    },
-    {
-      title: 'Cloud & DevOps',
-      skills: ['Google Cloud Platform (GCP)', 'AWS', 'Docker', 'CI/CD', 'Firebase'],
-    },
-    {
-      title: 'AI / ML',
-      skills: ['Generative AI', 'Gemini API', 'Prompt Engineering', 'LangChain', 'TensorFlow', 'PyTorch'],
-    },
-    {
-      title: 'Databases',
-      skills: ['MySQL', 'MongoDB', 'PostgreSQL'],
-    },
-    {
-      title: 'Tools',
-      skills: ['Git', 'GitHub', 'VS Code', 'Postman', 'Figma'],
-    },
+  const skills = [
+    { category: 'Languages', items: ['Java', 'Python', 'C', 'JavaScript', 'TypeScript', 'SQL'] },
+    { category: 'Web / Frontend', items: ['React', 'Next.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Framer Motion'] },
+    { category: 'Backend', items: ['Node.js', 'Express.js', 'REST APIs'] },
+    { category: 'Cloud & DevOps', items: ['Google Cloud Platform', 'AWS', 'Docker', 'Git/GitHub'] },
+    { category: 'AI / ML', items: ['TensorFlow', 'Keras', 'Scikit-Learn', 'Pandas', 'NumPy', 'Matplotlib'] },
+    { category: 'Databases', items: ['MySQL', 'MongoDB', 'PostgreSQL'] },
+    { category: 'Tools', items: ['VS Code', 'Postman', 'Figma', 'Linux'] },
   ];
 
   return (
-    <section id="skills" className="py-12 px-4 border-b border-gray-900 bg-background">
-      <div className="max-w-[1100px] mx-auto">
-        <h2 className="text-2xl font-bold text-primary mb-8 border-l-4 border-accent pl-4">Technical Skills</h2>
+    <section id="skills" className="py-16 px-6 max-w-[1100px] mx-auto">
+      <h2 className="text-2xl font-bold text-primary mb-8">Technical Skills</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category) => (
-            <div key={category.title} className="space-y-3">
-              <h3 className="text-sm font-semibold text-secondary uppercase tracking-wider border-b border-gray-800 pb-2">
-                {category.title}
-              </h3>
-              <ul className="space-y-1.5">
-                {category.skills.map((skill) => (
-                  <li key={skill} className="text-primary text-sm font-medium">
-                    {skill}
-                  </li>
-                ))}
-              </ul>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {skills.map((skillGroup) => (
+          <div
+            key={skillGroup.category}
+            className="border border-gray-800 rounded-lg p-5 hover:border-gray-700 transition-colors"
+          >
+            <h3 className="text-base font-semibold text-primary mb-3">
+              {skillGroup.category}
+            </h3>
+            <div className="flex flex-wrap gap-x-3 gap-y-2">
+              {skillGroup.items.map((item, i) => (
+                <span key={item} className="text-secondary text-sm">
+                  {item}
+                  {i < skillGroup.items.length - 1 && <span className="text-gray-800 ml-3">|</span>}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -1,31 +1,67 @@
 @import "tailwindcss";
 
-@theme {
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: dark;
+  --color-background: #0B0D10;
+  --color-surface: #0F1115;
   --color-primary: #EDEDED;
   --color-secondary: #A1A1AA;
   --color-accent: #3B82F6;
-  --color-background: #0B0D10;
-  --color-surface: #0B0D10;
-
-  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-:root {
-  color-scheme: dark;
+@theme {
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
 }
 
 body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
   background-color: var(--color-background);
   color: var(--color-primary);
-  font-family: var(--font-sans);
   overflow-x: hidden;
-  margin: 0;
-  line-height: 1.5;
 }
 
 ::selection {
   background-color: var(--color-accent);
   color: white;
+}
+
+/* Typography Hierarchy */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+p {
+  color: var(--color-secondary);
+  line-height: 1.6;
+}
+
+/* Global Transition Rules */
+a,
+button {
+  transition-property: color, background-color, border-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+/* Utility */
+.section-padding {
+  @apply py-16 px-6 max-w-[1100px] mx-auto;
 }
 
 /* Custom Scrollbar */
@@ -38,18 +74,17 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #1F2937;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: #374151;
 }
 
 /* Base Utility Classes for Typography Consistency */
 .resume-heading {
-  font-weight: 700;
-  color: var(--color-primary);
+  @apply text-2xl font-bold text-primary mb-8;
 }
 
 .resume-subheading {

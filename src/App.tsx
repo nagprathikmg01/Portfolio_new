@@ -9,9 +9,9 @@ import { Navigation } from './components/Navigation';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden text-primary selection:bg-accent selection:text-white">
+    <div className="min-h-screen">
       <Navigation />
-      <main className="relative z-10 max-w-[1100px] mx-auto bg-background">
+      <main>
         <Hero />
         <Skills />
         <Projects />
